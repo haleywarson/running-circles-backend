@@ -24,11 +24,12 @@ class CirclesController < ApplicationController
     
     def destroy
         @circle.destroy
-    End
+    end
+    
     private
     
     def find_circle
         @circle = Circle.find params[:id]
-    End
+    end
 
 end
