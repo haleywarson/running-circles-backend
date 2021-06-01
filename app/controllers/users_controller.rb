@@ -28,8 +28,6 @@ class UsersController < ApplicationController
         if @user && @user.authenticate(params[:password])
             payload = {user_id: @user.id}
             @token = JWT.encode(payload, Rails.application.secrets.secret_key_base[0])
-            # master key in config (it is git ignored) - once deployed, need something else
-            #usually give an expiration on jwts
 
             render json: {user: @user, token: @token}
         else 
@@ -37,5 +35,5 @@ class UsersController < ApplicationController
         end 
 
     end 
-    
+
 end
