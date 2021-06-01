@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_175958) do
+ActiveRecord::Schema.define(version: 2021_06_01_191224) do
 
   create_table "circles", force: :cascade do |t|
     t.string "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_175958) do
   create_table "runs", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.date "date"
+    t.string "date"
     t.string "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
