@@ -4,21 +4,21 @@ class RunsController < ApplicationController
 
     def index
         @runs = Run.all
-        render json: @runs
+        render json: @runs, include: [:users]
     end
     
     def show
-        render json: @run
+        render json: @run, include: [:users]
     end
     
     def create
         @run = Run.create!(run_params)
-        render json: @run
+        render json: @run, include: [:users]
     end
     
     def update
         @run.update(run_params)
-        render json: @run
+        render json: @run, include: [:users]
     end
     
     def destroy

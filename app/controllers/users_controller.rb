@@ -3,20 +3,20 @@ class UsersController < ApplicationController
     skip_before_action :authorized, only: [:create, :login]
     
     def profile
-        render json: @user 
+        render json: @user, include: [:runs, :circles]
     end 
 
     def index
         @users = User.all 
 
-        render json: @users 
+        render json: @users, include: [:runs, :circles]
     end 
         
         
     def create
         @user = User.create(user_params)
 
-        render json: @user, status: :created 
+        render json: @user, include: [:runs, :circles], status: :created 
     end 
 
     def login
