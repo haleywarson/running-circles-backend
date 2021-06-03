@@ -12,12 +12,12 @@ class RunsController < ApplicationController
     end
     
     def create
-        @run = Run.create!(runs_params)
+        @run = Run.create!(run_params)
         render json: @run
     end
     
     def update
-        @run.update(runs_params)
+        @run.update(run_params)
         render json: @run
     end
     
@@ -31,8 +31,8 @@ class RunsController < ApplicationController
         @run = Run.find params[:id]
     end
 
-    def runs_params
-        params.require(:run).permit(:name, :age, :date, :location, :time)
+    def run_params
+        params.require(:run).permit(:name, :date, :location, :time)
     end 
 
 end
