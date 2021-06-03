@@ -14,18 +14,15 @@ class UsersController < ApplicationController
         
         
     def create
-        @user = User.create(
-            username: params[:username],
-            password: params[:password]
-        )
+        @user = User.create(user_params)
 
         render json: @user, status: :created 
     end 
 
     def login
-        @user = User.find_by(username: params[:username])
+        @user = User.find_by(username: params[:user][:username])
 
-        if @user && @user.authenticate(params[:password])
+        if @user && @user.authenticate(params[:user][:password])
             payload = {user_id: @user.id}
             @token = JWT.encode(payload, Rails.application.secrets.secret_key_base[0])
 
@@ -33,7 +30,12 @@ class UsersController < ApplicationController
         else 
             render json: "Invalid credentials"
         end 
+    end 
 
+    private
+
+    def user_params
+        params.require(:user).permit(:username, :password)
     end 
 
 end

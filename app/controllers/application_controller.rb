@@ -25,6 +25,11 @@ class ApplicationController < ActionController::API
                 nil
             end 
         end 
+        if(@user_id)
+            @user=User.find(@user_id)
+        else
+            nil 
+        end 
     end 
 
 end
