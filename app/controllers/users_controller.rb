@@ -11,7 +11,11 @@ class UsersController < ApplicationController
 
         render json: @users, include: [:runs, :circles]
     end 
-        
+    
+    def show
+        @user = User.find(params[:id])
+        render json: @user, include: [:runs, :circles]
+    end 
         
     def create
         @user = User.create(user_params)
