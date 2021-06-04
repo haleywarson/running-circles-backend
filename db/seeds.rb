@@ -24,59 +24,59 @@ colette = User.create!(
     password: "colette123"
 )
 
-parents = Circle.create!(name: "parents")
-kids = Circle.create!(name: "kids")
-girls = Circle.create!(name: "girls")
+college = Circle.create!(name: "College friends")
+triathletes = Circle.create!(name: "Triathletes")
+joggers = Circle.create!(name: "Joggers")
 
 park_run = Run.create!(
     name: "Park run",
-    location: "Central park",
-    date: "05-30-2021",
+    location: "8801 M.L.K. Jr Blvd",
+    date: "06-05-2021",
     time: "4:00 PM"
 )
 
-neighborhood_run = Run.create!(
-    name: "Neighborhood run",
-    location: "Westerly creek",
-    date: "05-30-2021",
-    time: "4:00 PM"
+block_run = Run.create!(
+    name: "Block run",
+    location: "East 29th Place",
+    date: "06-06-2021",
+    time: "2:00 PM"
 )
 
 track_run = Run.create!(
     name: "Track run",
-    location: "Track",
-    date: "05-30-2021",
-    time: "4:00 PM"
+    location: "2000 Valentia St",
+    date: "06-07-2021",
+    time: "8:00 AM"
 )
 
 UserCircle.create!(
     user_id: haley.id,
-    circle_id: girls.id 
+    circle_id: joggers.id 
 )
 
 UserCircle.create!(
     user_id: haley.id,
-    circle_id: parents.id 
+    circle_id: college.id 
 )
 
 UserCircle.create!(
     user_id: tim.id,
-    circle_id: parents.id 
+    circle_id: college.id 
 )
 
 UserCircle.create!(
     user_id: hattie.id,
-    circle_id: kids.id 
+    circle_id: triathletes.id 
 )
 
 UserCircle.create!(
     user_id: hattie.id,
-    circle_id: girls.id 
+    circle_id: joggers.id 
 )
 
 UserCircle.create!(
     user_id: colette.id,
-    circle_id: kids.id 
+    circle_id: triathletes.id 
 )
 
 UserRun.create!(
@@ -96,7 +96,7 @@ UserRun.create!(
 
 UserRun.create!(
     user_id: haley.id,
-    run_id: neighborhood_run.id
+    run_id: block_run.id
 )
 
 UserRun.create!(
